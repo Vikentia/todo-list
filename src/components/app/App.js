@@ -3,7 +3,6 @@ import List from '../list/List';
 import AddList from '../add-list/AddList';
 import Tasks from '../tasks/Tasks';
 
-// import DB from '../../assets/db.json'
 import axios from 'axios';
 
 import point from '../../assets/img/point.png';
@@ -44,15 +43,6 @@ function App() {
         ]}
           icon={menu}
         />
-
-        {/* <List
-          items={lists}
-          icon={point}
-          onRemove={(list) => console.log(list)}
-          isRemovable={true}
-        />
-
-        <AddList icon={plus} onAdd={onAddList} />*/}
 
         {lists ? (
           <List

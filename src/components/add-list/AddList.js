@@ -16,7 +16,6 @@ function AddList({ onAdd, icon }) {
     const [isLoading, setIsLoading] = useState(false);
 
 
-
     function onClose() {
         setVisiblePopup(false);
         setInputValue('');
@@ -30,20 +29,18 @@ function AddList({ onAdd, icon }) {
         setIsLoading(true);
 
 
-        // useEffect(() => (
         axios
             .post('http://localhost:3006/lists', {
                 name: inputValue,
                 colorId: 'icon'
             })
             .then(({ data }) => {
-                onAdd(...data);
+                onAdd(data);
             })
             .finally(() => {
                 setIsLoading(false);
                 onClose();
             })
-        // ), [data]);
 
     };
 

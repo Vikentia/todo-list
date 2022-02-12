@@ -4,22 +4,16 @@ import axios from "axios";
 
 import remove from '../../assets/img/close2.png'
 
-
 import './List.scss';
-
-
-
 
 function List({ items, isRemovable, onClick, onRemove, icon }) {
 
     const removeList = (item) => {
         if (window.confirm('Вы действительно хотите удалить список?')) {
-            axios.delete(`http://localhost:3006/lists/ + ${item.id}`).then(() => {
-                onRemove(item.id);
-            })
-
+            axios
+                .delete('http://localhost:3006/lists/' + item.id)
+                .then(() => onRemove(item.id))
         }
-
     }
 
     return (
