@@ -17,6 +17,7 @@ function App() {
 
   const [lists, setLists] = useState(null);
 
+
   useEffect(() => {
     axios
       .get('http://localhost:3006/lists')
@@ -24,6 +25,14 @@ function App() {
         setLists(data)
       })
   }, [])
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:3006/lists')
+      .then(({ data }) => {
+        setLists(data)
+      })
+  }, [lists])
 
   function onAddList(obj) {
     obj.icon = point;
@@ -51,7 +60,8 @@ function App() {
             onRemove={id => {
               const newLists = lists.filter(item => item.id !== id);
               setLists(newLists);
-            }}
+            }
+            }
             isRemovable
           />
         ) : (
